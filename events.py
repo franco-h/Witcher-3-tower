@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 import helper as h
 import combat as c
