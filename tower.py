@@ -11,7 +11,7 @@ import combat as c
 
 def showInstructions():
     # print a main menu and the commands
-    h.fprint('''
+    h.print_slow('''
 Witcher 3: Wild Hunt - A Towerful of Mice
 ===============================
 Background: To defend Kaer Morhen from the Wild Hunt, you need to enlist the help of Keira Metz. However, Keira only agrees to do so if you can lift the curse on the Fyke Island Tower. You hopped into Keira's boat and sailed to Fyke Island. After you cleared out the Drowners, Ghouls, and Rotfriends in the nearby area, you entered the tower at the ground floor and sensed a presence of a powerful evil force..........
@@ -30,7 +30,7 @@ def playerinfo():
     #    print('YOU ARE IN THE ' + currentRoom + '.')
     print('=================================')
     print('Inventory :', str(c.inventory))
-    print('Spells :', str(c.signbook))
+    print('Signs :', str(c.signbook))
     print('=================================')
 
 
@@ -82,13 +82,13 @@ while True:
         move = input('>')  # so long as the move does not
         # have a value. Ask the user for input
 
-    # make everything lower case because directions and items require it, then split into a list
     move = move.lower().split()
     os.system('clear')  # clear the screen
     if move[0] == 'go':
         if move[1] in rooms[currentRoom]:
             currentRoom = rooms[currentRoom][move[1]]
             if 'desc' in rooms[currentRoom]:
+                print()
                 print(rooms[currentRoom]['desc'])
 
                 # if 'access' is false, the player can't go that way.
